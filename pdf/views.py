@@ -3,7 +3,7 @@ from django.shortcuts import render
 import pdfkit
 from django.http import HttpResponse
 from django.template import loader
-import os
+import io
 
 from .models import Profile
 # Create your views here.
@@ -38,7 +38,6 @@ def resume(request,id):
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment'
     filename = 'resume.pdf'
-    # wkhtmltopdf(filename)
 
 
     return response
